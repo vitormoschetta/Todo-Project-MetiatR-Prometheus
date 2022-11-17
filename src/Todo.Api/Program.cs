@@ -38,6 +38,11 @@ builder.Services.AddScoped<INotificationHandler<DeletedTodoItemNotification>, To
 builder.Services.AddScoped<INotificationHandler<MarkedAsDoneTodoItemNotification>, TodoItemEventHandler>();
 builder.Services.AddScoped<INotificationHandler<UpdatedTodoItemNotification>, TodoItemEventHandler>();
 
+builder.Services.AddScoped<INotificationHandler<CreatedTodoItemNotification>, LoggingEventHandler>();
+builder.Services.AddScoped<INotificationHandler<DeletedTodoItemNotification>, LoggingEventHandler>();
+builder.Services.AddScoped<INotificationHandler<MarkedAsDoneTodoItemNotification>, LoggingEventHandler>();
+builder.Services.AddScoped<INotificationHandler<UpdatedTodoItemNotification>, LoggingEventHandler>();
+
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 builder.Services.AddControllers().AddJsonOptions(options =>
